@@ -4,20 +4,25 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 	private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}";
 	private static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$";
-
+	private static final String MOB_NUM_PATTERN = "^[0-9]{2}[ ]*[6-9][0-9]{9}$";
 	public boolean validateFirstName(String fName) {
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(fName).matches();
 	}
-	
+
 	public boolean validateLastName(String lName) {
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(lName).matches();
 	}
+
+	public boolean validateEmailId(String eMail) {
+		Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+		return pattern.matcher(eMail).matches();
+	}
 	
-	 public boolean validateEmailId(String eMail) {
-	        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-	        return pattern.matcher(eMail).matches();
+	 public boolean validateMobileNumber(String mobNum) {
+	        Pattern pattern = Pattern.compile(MOB_NUM_PATTERN);
+	        return pattern.matcher(mobNum).matches();
 	    }
 
 	public static void main(String[] args) {
@@ -44,6 +49,13 @@ public class UserRegistration {
 			System.out.println("Entered email is valid");
 		else
 			System.out.println("Entered email is invalid");
+		System.out.println("Entered mobile number");
+		String str4=sc.next();
+		boolean result3=userregi.validateMobileNumber(str4);
+		if(result==true)
+			System.out.println("Entered mobile number is valid");
+		else
+			System.out.println("Entered mobile number is invalid");
 
 	}
 
