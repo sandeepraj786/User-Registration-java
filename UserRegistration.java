@@ -8,6 +8,10 @@ public class UserRegistration {
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(fName).matches();
 	}
+	 public boolean validateLastName(String lName) {
+	        Pattern pattern = Pattern.compile(NAME_PATTERN);
+	        return pattern.matcher(lName).matches();
+	    }
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter first name");
@@ -18,6 +22,13 @@ public class UserRegistration {
 			System.out.println("Entered first name is valid");
 		else
 			System.out.println("Entered first name is invalid");
+		System.out.println("Enter last name:");
+		String str2=sc.next();
+		boolean result1=userregi.validateLastName(str2);
+		if(result==true)
+			System.out.println("Entered last name is valid");
+		else
+			System.out.println("Entered last name is invalid");
 
 	}
 
